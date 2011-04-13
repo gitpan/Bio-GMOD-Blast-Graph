@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::MapSpace::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::MapSpace::VERSION = '0.01';
+  $Bio::GMOD::Blast::Graph::MapSpace::VERSION = '0.02';
 }
 #####################################################################
 #

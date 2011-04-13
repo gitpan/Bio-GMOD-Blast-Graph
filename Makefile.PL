@@ -15,6 +15,7 @@ my %WriteMakefileArgs = (
     'Capture::Tiny' => '0',
     'File::Spec::Functions' => '0',
     'File::Temp' => '0',
+    'IO::String' => '0',
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
@@ -30,10 +31,11 @@ my %WriteMakefileArgs = (
     'CGI' => '0',
     'Carp' => '0',
     'Exporter' => '0',
+    'File::Spec' => '0',
     'GD' => '0',
     'integer' => '0'
   },
-  'VERSION' => '0.01',
+  'VERSION' => '0.02',
   'test' => {
     'TESTS' => 't/*.t'
   }

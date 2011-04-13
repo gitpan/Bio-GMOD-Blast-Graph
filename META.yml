@@ -8,6 +8,7 @@ build_requires:
   Capture::Tiny: 0
   File::Spec::Functions: 0
   File::Temp: 0
+  IO::String: 0
   Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.31
@@ -24,13 +25,14 @@ requires:
   CGI: 0
   Carp: 0
   Exporter: 0
+  File::Spec: 0
   GD: 0
   integer: 0
 resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Bio-GMOD-Blast-Graph
   homepage: http://search.cpan.org/dist/Bio-GMOD-Blast-Graph
   repository: http://github.com/gmod/Bio-GMOD-Blast-Graph
-version: 0.01
+version: 0.02
 x_Dist_Zilla:
   plugins:
     -

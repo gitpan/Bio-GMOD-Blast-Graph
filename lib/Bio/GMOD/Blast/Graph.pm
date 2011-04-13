@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::VERSION = '0.01';
+  $Bio::GMOD::Blast::Graph::VERSION = '0.02';
 }
 # ABSTRACT: display a graphical summary of a BLAST report
 
@@ -14,6 +14,8 @@ use base 'Bio::Root::IO';
 use Bio::SearchIO;
 use GD;
 use CGI qw/:all/;
+
+use File::Spec;
 
 use Bio::GMOD::Blast::Graph::IntSpan;
 use Bio::GMOD::Blast::Graph::MyDebug qw( dmsg dmsgs assert );
@@ -179,7 +181,7 @@ sub _parseFile {
     $self->{'_srcLength'} = $result->query_length;
 
     if (!scalar$result->hits()) {
-        print( "<p>Sorry, no hits found for your query sequence.</p>" );
+        $self->_print( "<p>Sorry, no hits found for your query sequence.</p>" );
         return;
     }
 
@@ -335,7 +337,7 @@ sub _initGD {
 
     $img->rectangle(0, 0,
             $self->{'_realWidth'},
-            $self->{'_imgHeight'},
+            $self->{'_realHeight'},
             $self->{'_blue'});
 
 
@@ -353,23 +355,16 @@ sub _writeImage {
 
     my ($self) = @_;
 
-    unless(open(IMAGEOUT, ">".$self->{'_dstDir'}.$self->{'_imgName'})){
-
-    die ("couldn't write to ".$self->{'_dstDir'}.$self->{'_imgName'});
-
-    }
+    my $img_path = File::Spec->catfile( $self->{'_dstDir'}, $self->{'_imgName'} );
+    open my $img, '>', $img_path
+        or die "$! writing $img_path";
 
     if ($self->{'_img'}->can('png')) {
-
-    print IMAGEOUT $self->{'_img'}->png;
-
+        print $img $self->{'_img'}->png;
     }
     else {
-
-    print IMAGEOUT $self->{'_img'}->gif;
-
+        print $img $self->{'_img'}->gif;
     }
-    close IMAGEOUT;
 
 }
 
@@ -732,7 +727,7 @@ sub _annotateIMap {
 
     my $name = $href;
 
-    print "<area shape='rect' coords='$cx1,$cy1,$cx2,$cy2' href=\"#" . $href . "_A\" ";
+    $self->_print( "<area shape='rect' coords='$cx1,$cy1,$cx2,$cy2' href=\"#" . $href . "_A\" " );
 
     my $scoreDesc = "p=" . $wrap->getP() . " s=" . $wrap->getScore();
 
@@ -753,7 +748,7 @@ sub _annotateIMap {
     # have to escape those.
     $englishDesc =~ s/\'/\&\#39/g;
 
-    print "ONMOUSEOVER='document.daform.notes.value=\"$scoreDesc $englishDesc\"'>\n";
+    $self->_print( "ONMOUSEOVER='document.daform.notes.value=\"$scoreDesc $englishDesc\"'>\n" );
 
 }
 
@@ -1211,22 +1206,22 @@ sub _countHTML {
 
 #    print( '<center><h1>Summary of BLAST Results</h1></center>' );
 
-    print( '<p align=center>' );
+    $self->_print( '<p align=center>' );
 
     if( $shown < $max ) {
 
-    print( 'The graph shows the highest hits per range.<br>' );
-    print( '<b>Data has been omitted:</b> ' );
-    print( "$shown/$max $word displayed." );
+    $self->_print( 'The graph shows the highest hits per range.<br>' );
+    $self->_print( '<b>Data has been omitted:</b> ' );
+    $self->_print( "$shown/$max $word displayed." );
 
     }
     else {
 
-    print( 'All hits shown.' );
+    $self->_print( 'All hits shown.' );
 
     }
 
-    print( "</p>\n" );
+    $self->_print( "</p>\n" );
 
 }
 
@@ -1238,14 +1233,14 @@ sub _writeIMapStart {
 
     my ($self) = @_;
 
-    print "<center>\n";
+    $self->_print( "<center>\n" );
 
-    print start_form({-name=>'daform'}).
+    $self->_print( start_form({-name=>'daform'}).
       textfield(-name=>'notes',
             -size=>$self->{'_formFieldWidth'},
-            -value=>'Mouse-overs require JavaScript').p;
+            -value=>'Mouse-overs require JavaScript').p );
 
-    print "<MAP NAME=".$self->{'_mapName'}.">\n";
+    $self->_print( "<MAP NAME=".$self->{'_mapName'}.">\n" );
 
 }
 
@@ -1257,14 +1252,14 @@ sub _writeIMapEnd {
 
     my ($self) = @_;
 
-    print "</MAP>\n";
+    $self->_print( "</MAP>\n" );
 
-    print img({-src=>$self->{'_dstURL'}.$self->{'_imgName'},
-           -usemap=>"#".$self->{'_mapName'}});
+    $self->_print( img({-src=>$self->{'_dstURL'}.$self->{'_imgName'},
+           -usemap=>"#".$self->{'_mapName'}}) );
 
-    print end_form;
+    $self->_print( end_form );
 
-    print "</center>\n";
+    $self->_print( "</center>\n" )
 
 }
 
