@@ -6,8 +6,6 @@ META.json
 META.yml
 Makefile.PL
 README
-VERSION
-conf/Blast.conf
 dist.ini
 lib/Bio/GMOD/Blast/Graph.pm
 lib/Bio/GMOD/Blast/Graph/BaseObj.pm
@@ -28,10 +26,6 @@ lib/Bio/GMOD/Blast/Graph/MyUtils.pm
 lib/Bio/GMOD/Blast/Graph/ScientificNotation.pm
 lib/Bio/GMOD/Blast/Graph/WrapList.pm
 lib/Bio/GMOD/Blast/Graph/WrapPartitionsFixed.pm
-sample_query_sequence/dna.seq1
-sample_query_sequence/dna.seq2
-sample_query_sequence/protein.seq1
-sample_query_sequence/protein.seq2
 t/00compile.t
 t/basics.t
 t/data/blast_report.blast

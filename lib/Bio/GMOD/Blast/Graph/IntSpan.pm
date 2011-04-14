@@ -30,7 +30,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::IntSpan::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::IntSpan::VERSION = '0.02';
+  $Bio::GMOD::Blast::Graph::IntSpan::VERSION = '0.03';
 }
 $Bio::GMOD::Blast::Graph::IntSpan::VERSION = 1.03;
 
@@ -1231,7 +1231,7 @@ Robert Buels <rmb32@cornell.edu>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2003 by The Board of Trustees of Leland Stanford Junior University.
+This software is copyright (c) 2011 by The Board of Trustees of Leland Stanford Junior University.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

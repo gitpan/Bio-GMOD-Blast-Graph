@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::HitWrapper::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::HitWrapper::VERSION = '0.02';
+  $Bio::GMOD::Blast::Graph::HitWrapper::VERSION = '0.03';
 }
 #####################################################################
 #
@@ -307,7 +307,7 @@ Robert Buels <rmb32@cornell.edu>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2003 by The Board of Trustees of Leland Stanford Junior University.
+This software is copyright (c) 2011 by The Board of Trustees of Leland Stanford Junior University.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

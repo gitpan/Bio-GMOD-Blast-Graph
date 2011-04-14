@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::VERSION = '0.02';
+  $Bio::GMOD::Blast::Graph::VERSION = '0.03';
 }
 # ABSTRACT: display a graphical summary of a BLAST report
 
@@ -232,9 +232,6 @@ sub _parseFile {
     $self->{'_hitCountAfter'} =
     $self->{'_parts'}->getPartitionElementsCountAfter();
 
-    $self->_countHTML($self->{'_hitCountAfter'},
-              $self->{'_hitCountBefore'});
-
     if( $self->{'_hitCountAfter'} == $self->{'_hitCountBefore'} ) {
 
     $self->{'_allShowingP'} = 1;
@@ -255,6 +252,9 @@ sub _createAndShowGraph {
 # do the job.
 
     my ($self) = @_;
+
+    $self->_countHTML($self->{'_hitCountAfter'},
+              $self->{'_hitCountBefore'});
 
     $self->_initGD;
 
@@ -1328,17 +1328,21 @@ search report.
 
 =head2 new
 
-This is the constructor. It expects to be passed named arguments
-for the search outputfile, the file format (blast or fasta), the
-image file path, and image url.
+This is the constructor. It expects to be passed named arguments for
+the search outputfile, the file format (blast or fasta), the image
+file path, and image url.  It can also accept an optional filehandle
+argument, which is the filehandle to which it will print its HTML
+output when L</showGraph> is called.  By default, prints to STDOUT.
 
 Usage :
 
-    my $graph =
-      Bio::GMOD::Blast::Graph->new(-outputfile=>$blastOutputFile,
-                                   -format=>'blast',
-                                   -dstDir=>$imageDir,
-                                   -dstURL=>$imageUrl);
+    my $graph = Bio::GMOD::Blast::Graph->new(
+        -outputfile => $blastOutputFile,
+        -format     => 'blast',
+        -dstDir     => $imageDir,
+        -dstURL     => $imageUrl
+        -fh         => \*STDOUT,
+        );
 
 =head2 showGraph
 
@@ -1390,7 +1394,7 @@ Robert Buels <rmb32@cornell.edu>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2003 by The Board of Trustees of Leland Stanford Junior University.
+This software is copyright (c) 2011 by The Board of Trustees of Leland Stanford Junior University.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
