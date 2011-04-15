@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.31;
 
 my %WriteMakefileArgs = (
   'ABSTRACT' => 'display a graphical summary of a BLAST report',
-  'AUTHOR' => 'Shuai Weng <shuai@genome.stanford.edu>, John Slenk <jces@genome.stanford.edu>, Robert Buels <rmb32@cornell.edu>',
+  'AUTHOR' => 'Shuai Weng <shuai@genome.stanford.edu>, John Slenk <jces@genome.stanford.edu>, Robert Buels <rmb32@cornell.edu>, Jonathan "Duke" Leto <jonathan@leto.net>',
   'BUILD_REQUIRES' => {
     'Capture::Tiny' => '0',
     'File::Spec::Functions' => '0',
@@ -23,19 +23,18 @@ my %WriteMakefileArgs = (
   },
   'DISTNAME' => 'Bio-GMOD-Blast-Graph',
   'EXE_FILES' => [],
-  'LICENSE' => 'perl',
+  'LICENSE' => 'artistic',
   'NAME' => 'Bio::GMOD::Blast::Graph',
   'PREREQ_PM' => {
     'Bio::Root::IO' => '0',
     'Bio::SearchIO' => '0',
-    'CGI' => '0',
     'Carp' => '0',
     'Exporter' => '0',
     'File::Spec' => '0',
     'GD' => '0',
     'integer' => '0'
   },
-  'VERSION' => '0.03',
+  'VERSION' => '0.04',
   'test' => {
     'TESTS' => 't/*.t'
   }

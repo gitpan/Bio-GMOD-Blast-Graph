@@ -4,6 +4,7 @@ author:
   - 'Shuai Weng <shuai@genome.stanford.edu>'
   - 'John Slenk <jces@genome.stanford.edu>'
   - 'Robert Buels <rmb32@cornell.edu>'
+  - "Jonathan \"Duke\" Leto <jonathan@leto.net>"
 build_requires:
   Capture::Tiny: 0
   File::Spec::Functions: 0
@@ -13,8 +14,8 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.31
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200003, CPAN::Meta::Converter version 2.110390'
-license: perl
+generated_by: 'Dist::Zilla version 4.200003, CPAN::Meta::Converter version 2.110930'
+license: artistic
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -22,7 +23,6 @@ name: Bio-GMOD-Blast-Graph
 requires:
   Bio::Root::IO: 0
   Bio::SearchIO: 0
-  CGI: 0
   Carp: 0
   Exporter: 0
   File::Spec: 0
@@ -32,7 +32,7 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Bio-GMOD-Blast-Graph
   homepage: http://search.cpan.org/dist/Bio-GMOD-Blast-Graph
   repository: http://github.com/gmod/Bio-GMOD-Blast-Graph
-version: 0.03
+version: 0.04
 x_Dist_Zilla:
   plugins:
     -

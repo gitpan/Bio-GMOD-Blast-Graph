@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::WrapPartitionsFixed::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::WrapPartitionsFixed::VERSION = '0.03';
+  $Bio::GMOD::Blast::Graph::WrapPartitionsFixed::VERSION = '0.04';
 }
 #####################################################################
 #
@@ -477,14 +477,19 @@ John Slenk <jces@genome.stanford.edu>
 
 Robert Buels <rmb32@cornell.edu>
 
+=item *
+
+Jonathan "Duke" Leto <jonathan@leto.net>
+
 =back
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by The Board of Trustees of Leland Stanford Junior University.
+This software is Copyright (c) 2011 by The Board of Trustees of Leland Stanford Junior University.
 
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+This is free software, licensed under:
+
+  The Artistic License 1.0
 
 =cut
 

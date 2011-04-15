@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::VERSION = '0.03';
+  $Bio::GMOD::Blast::Graph::VERSION = '0.04';
 }
 # ABSTRACT: display a graphical summary of a BLAST report
 
@@ -13,7 +13,6 @@ use strict;
 use base 'Bio::Root::IO';
 use Bio::SearchIO;
 use GD;
-use CGI qw/:all/;
 
 use File::Spec;
 
@@ -1233,14 +1232,9 @@ sub _writeIMapStart {
 
     my ($self) = @_;
 
-    $self->_print( "<center>\n" );
+    $self->_print( '<center><form name="daform">' );
 
-    $self->_print( start_form({-name=>'daform'}).
-      textfield(-name=>'notes',
-            -size=>$self->{'_formFieldWidth'},
-            -value=>'Mouse-overs require JavaScript').p );
-
-    $self->_print( "<MAP NAME=".$self->{'_mapName'}.">\n" );
+    $self->_print( '<MAP NAME="' . $self->{'_mapName'} . '">' );
 
 }
 
@@ -1254,12 +1248,10 @@ sub _writeIMapEnd {
 
     $self->_print( "</MAP>\n" );
 
-    $self->_print( img({-src=>$self->{'_dstURL'}.$self->{'_imgName'},
-           -usemap=>"#".$self->{'_mapName'}}) );
+    my $img = sprintf '<img src="%s" usemap="#%s">', $self->{_dstURL} . $self->{_imgName}, $self->{_mapName};
+    $self->_print( $img );
 
-    $self->_print( end_form );
-
-    $self->_print( "</center>\n" )
+    $self->_print( '</form></center>' );
 
 }
 
@@ -1390,14 +1382,19 @@ John Slenk <jces@genome.stanford.edu>
 
 Robert Buels <rmb32@cornell.edu>
 
+=item *
+
+Jonathan "Duke" Leto <jonathan@leto.net>
+
 =back
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by The Board of Trustees of Leland Stanford Junior University.
+This software is Copyright (c) 2011 by The Board of Trustees of Leland Stanford Junior University.
 
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+This is free software, licensed under:
+
+  The Artistic License 1.0
 
 =cut
 
