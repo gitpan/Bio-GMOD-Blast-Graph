@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::MyUtils::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::MyUtils::VERSION = '0.04';
+  $Bio::GMOD::Blast::Graph::MyUtils::VERSION = '0.05';
 }
 #####################################################################
 #

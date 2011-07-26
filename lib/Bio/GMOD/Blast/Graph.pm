@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::VERSION = '0.04';
+  $Bio::GMOD::Blast::Graph::VERSION = '0.05';
 }
 # ABSTRACT: display a graphical summary of a BLAST report
 
@@ -1234,7 +1234,10 @@ sub _writeIMapStart {
 
     $self->_print( '<center><form name="daform">' );
 
+    $self->_print( '<input type="text" id="notes" value="" size="30"' );
+
     $self->_print( '<MAP NAME="' . $self->{'_mapName'} . '">' );
+
 
 }
 
