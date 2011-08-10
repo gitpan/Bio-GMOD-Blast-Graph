@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::ListSetEnumerator::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::ListSetEnumerator::VERSION = '0.05';
+  $Bio::GMOD::Blast::Graph::ListSetEnumerator::VERSION = '0.06';
 }
 #####################################################################
 #

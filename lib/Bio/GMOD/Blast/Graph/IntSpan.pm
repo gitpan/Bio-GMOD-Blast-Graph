@@ -30,7 +30,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::IntSpan::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::IntSpan::VERSION = '0.05';
+  $Bio::GMOD::Blast::Graph::IntSpan::VERSION = '0.06';
 }
 $Bio::GMOD::Blast::Graph::IntSpan::VERSION = 1.03;
 

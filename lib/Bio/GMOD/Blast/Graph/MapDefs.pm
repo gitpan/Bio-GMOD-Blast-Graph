@@ -3,7 +3,7 @@ BEGIN {
   $Bio::GMOD::Blast::Graph::MapDefs::AUTHORITY = 'cpan:RBUELS';
 }
 BEGIN {
-  $Bio::GMOD::Blast::Graph::MapDefs::VERSION = '0.05';
+  $Bio::GMOD::Blast::Graph::MapDefs::VERSION = '0.06';
 }
 #####################################################################
 #
